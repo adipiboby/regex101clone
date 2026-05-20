@@ -1,0 +1,235 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #191919;
+  color: #ccc;
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+}
+.container {
+  padding: 16px;
+  border-radius: 8px;
+  max-width: 900px;
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  margin-bottom: 10px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#match-count {
+  background-color: #363636;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+#match-count.matched {
+  background-color: #2b4230;
+}
+
+.contenteditable-container {
+  background-color: #272727;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #cbcbcb;
+  padding-left: 10px;
+  transition: border-color 0.1s ease-in-out;
+}
+.contenteditable-container:has(.contenteditable:focus),
+#testStringInput:focus {
+  outline: none;
+  border-color: #007acc;
+}
+
+.contenteditable {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  padding-inline: 6px;
+  padding-block: 8px;
+}
+
+[contenteditable="true"],
+.delimiter,
+.selected-flags {
+  font-family: "Source Code Pro", monospace;
+}
+
+#delimiter{
+  cursor: pointer;
+}
+.contenteditable:empty:before {
+  content: "insert your regex here";
+  opacity: 0.5;
+}
+
+#testStringInput:empty:before {
+  content: "insert your test string here";
+  opacity: 0.5;
+}
+
+.delimiter {
+  opacity: 0.5;
+  padding-block: 8px;
+}
+
+.regex-container {
+  margin-bottom: 24px;
+  display: flex;
+  position: relative;
+}
+
+#testStringInput {
+  flex-grow: 1;
+  padding-block: 8px;
+  max-height: calc(100vh - 170px);
+  overflow: auto;
+}
+
+.selected-flags {
+  color: #43a564;
+  cursor: pointer;
+  padding-left: 4px;
+  padding-right: 10px;
+  padding-block: 8px;
+}
+
+.flags-menu {
+  position: absolute;
+  right: 0;
+  top: 80%;
+  background-color: #232323;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  width: 100%;
+  max-width: 200px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.1s ease-in-out;
+  z-index: 10;
+}
+
+.flags-menu.open {
+  top: 110%;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.flags-menu label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  user-select: none;
+  justify-content: space-between;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.flags-menu svg {
+  display: none;
+}
+
+.flags-menu input:checked + svg {
+  display: block;
+}
+
+.flags-menu label:hover {
+  background-color: #c7c7c726;
+}
+
+.flags-menu input {
+  appearance: none;
+  position: absolute;
+}
+
+.flags-title {
+  text-transform: uppercase;
+  padding: 12px;
+  user-select: none;
+  font-size: 14px;
+  border-bottom: 1px solid #9c9c9c1a;
+}
+
+label span {
+  color: #43a564;
+}
+
+.copy-regex {
+  color: rgb(167, 167, 167);
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-left: 1px solid #9c9c9c1a;
+  position: relative;
+}
+
+.copy-regex:hover {
+  background-color: #c7c7c726;
+}
+
+.tooltip {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 12px;
+  background-color: #272727;
+  padding: 6px 8px;
+  border-radius: 4px;
+  bottom: 125%;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
+  right: 0;
+  color: #cbcbcb;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 10px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #232323 transparent transparent transparent;
+}
+
+.copy-regex:hover .tooltip {
+  opacity: 1;
+}
+
+.highlight {
+  color: white;
+}
+
+.highlight:nth-of-type(2n + 1) {
+  background-color: #1f496f;
+}
+
+.highlight:nth-of-type(2n) {
+  background-color: #0e3457;
+}
+
+@media screen and (max-width: 360px) {
+  .contenteditable:empty:before {
+    content: "enter regex";
+    opacity: 0.5;
+  }
+}
+

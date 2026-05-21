@@ -1,9 +1,16 @@
 const togglediv = document.getElementById("selected-flags");
 const removediv = document.getElementById("flags-menu");
 const labels = document.querySelectorAll("#flags-menu label");
+
 const delimiter = document.querySelectorAll(".delimiter");
 const delsel = document.querySelector("#delimiter");
+const flagsmenuoption = removediv.querySelectorAll("input");
 
+const contenteditable = document.querySelector(".contenteditable");
+const testStringInput = document.querySelector("#testStringInput");
+const delimiter1 = document.querySelector("#delimiter1");
+
+console.log(testStringInput);
 togglediv.addEventListener("click", (e) => {
   e.stopPropagation();
   removediv.classList.toggle("open");
@@ -31,4 +38,49 @@ labels.forEach((label) => {
       );
     }
   });
+});
+testStringInput.addEventListener("input", (e) => {
+  const text = testStringInput.innerText;
+});
+
+testStringInput.addEventListener("input", (e) => {
+  console.log(contenteditable.innerText);
+  const testusertext = testStringInput.innerText;
+  if (testusertext) {
+    const regex = new RegExp(
+      contenteditable.innerText,
+      delsel.innerText.replace("/", ""),
+    );
+
+    testStringInput.innerHTML = testStringInput.innerText.replace(
+      regex,
+      "<span class='highlight'>$&</span>",
+    );
+    // const regex=delsel
+    // console.log(regex);
+    // const test = regex.test(testusertext);
+    // console.log(test);
+  }
+  // console.log(testusertext)
+});
+
+contenteditable.addEventListener("input", (e) => {
+  console.log(contenteditable.innerText);
+  const testusertext = testStringInput.innerText;
+  if (testusertext) {
+    const regex = new RegExp(
+      contenteditable.innerText,
+      delsel.innerText.replace("/", ""),
+    );
+
+    testStringInput.innerHTML = testStringInput.innerText.replace(
+      regex,
+      "<span class='highlight'>$&</span>",
+    );
+    // const regex=delsel
+    // console.log(regex);
+    // const test = regex.test(testusertext);
+    // console.log(test);
+  }
+  // console.log(testusertext)
 });

@@ -43,7 +43,7 @@ testStringInput.addEventListener("input", (e) => {
 });
 
 testStringInput.addEventListener("input", (e) => {
-  console.log(contenteditable.innerText);
+
   const testusertext = testStringInput.innerText;
   if (testusertext) {
     const regex = new RegExp(

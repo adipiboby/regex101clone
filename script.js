@@ -5,7 +5,6 @@ const labels = document.querySelectorAll("#flags-menu label");
 const delimiter = document.querySelectorAll(".delimiter");
 const delsel = document.querySelector("#delimiter");
 const flagsmenuoption = removediv.querySelectorAll("input");
-
 const contenteditable = document.querySelector(".contenteditable");
 const testStringInput = document.querySelector("#testStringInput");
 const delimiter1 = document.querySelector("#delimiter1");

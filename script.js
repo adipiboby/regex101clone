@@ -63,7 +63,6 @@ testStringInput.addEventListener("input", (e) => {
   }
   // console.log(testusertext)
 });
-
 contenteditable.addEventListener("input", (e) => {
   console.log(contenteditable.innerText);
   const testusertext = testStringInput.innerText;

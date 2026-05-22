@@ -9,7 +9,6 @@ const flagsmenuoption = removediv.querySelectorAll("input");
 const contenteditable = document.querySelector(".contenteditable");
 const testStringInput = document.querySelector("#testStringInput");
 const delimiter1 = document.querySelector("#delimiter1");
-
 console.log(testStringInput);
 togglediv.addEventListener("click", (e) => {
   e.stopPropagation();

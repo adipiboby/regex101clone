@@ -75,10 +75,10 @@ contenteditable.addEventListener("input", (e) => {
       regex,
       "<span class='highlight'>$&</span>",
     );
-    // const regex=delsel
+    const regex=delsel
     // console.log(regex);
     // const test = regex.test(testusertext);
     // console.log(test);
   } 
-  // console.log(testusertext) 
+  console.log(testusertext) 
 }); 

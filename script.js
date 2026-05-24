@@ -77,7 +77,7 @@ contenteditable.addEventListener("input", (e) => {
     );
     const regex=delsel
     // console.log(regex);
-    // const test = regex.test(testusertext);
+    const test = regex.test(testusertext);
     // console.log(test);
   } 
   // console.log(testusertext) 

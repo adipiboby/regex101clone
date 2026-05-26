@@ -80,5 +80,5 @@ contenteditable.addEventListener("input", (e) => {
     const test = regex.test(testusertext);
     // console.log(test);
   } 
-  // console.log(testusertext) 
+  console.log(testusertext) 
 }); 
